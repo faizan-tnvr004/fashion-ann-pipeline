@@ -16,8 +16,10 @@ x_test_raw = np.load('data/raw/x_test.npy')
 y_test = np.load('data/raw/y_test.npy')
 
 # Normalize to [0, 1]
+
 x_train_norm = (x_train_raw - 127.5) / 127.5
 x_test = x_test_raw / 255.0
+
 
 # Split train/validation
 x_train, x_val, y_train, y_val = train_test_split(
