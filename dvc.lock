@@ -23,8 +23,8 @@ stages:
       nfiles: 4
     - path: src/preprocess.py
       hash: md5
-      md5: 04c38896afafc3f1e8a824619f5ecc01
-      size: 1063
+      md5: 4d96349e2bf784039e5795d07439cfb3
+      size: 1116
     params:
       params.yaml:
         preprocess.seed: 42
@@ -32,7 +32,7 @@ stages:
     outs:
     - path: data/processed
       hash: md5
-      md5: 9b236f868ab46b16bfa03ff89726adb4.dir
+      md5: df4bfbe97527de147bbe2088384c39c3.dir
       size: 439110768
       nfiles: 6
   train:
@@ -40,7 +40,7 @@ stages:
     deps:
     - path: data/processed
       hash: md5
-      md5: 9b236f868ab46b16bfa03ff89726adb4.dir
+      md5: df4bfbe97527de147bbe2088384c39c3.dir
       size: 439110768
       nfiles: 6
     - path: src/train.py
@@ -52,28 +52,28 @@ stages:
         train.batch_size: 32
         train.dense_units: 256
         train.dropout_rate: 0.2
-        train.epochs: 15
+        train.epochs: 3
         train.learning_rate: 0.001
     outs:
     - path: models/history.csv
       hash: md5
-      md5: bc92d4a18e6a406423b75a957c744302
-      size: 1204
+      md5: ca693a2c409d770294667954bac87ebd
+      size: 270
     - path: models/model.h5
       hash: md5
-      md5: 79b9e98160e11462588641d2329511fc
+      md5: 0d38336042e763386b6db2bf6e5dc740
       size: 2466904
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed
       hash: md5
-      md5: 9b236f868ab46b16bfa03ff89726adb4.dir
+      md5: df4bfbe97527de147bbe2088384c39c3.dir
       size: 439110768
       nfiles: 6
     - path: models/model.h5
       hash: md5
-      md5: 79b9e98160e11462588641d2329511fc
+      md5: 0d38336042e763386b6db2bf6e5dc740
       size: 2466904
     - path: src/evaluate.py
       hash: md5
@@ -82,9 +82,9 @@ stages:
     outs:
     - path: metrics.json
       hash: md5
-      md5: 4d9b2790b13156ffe9d2f304e9e262c0
-      size: 84
+      md5: 5dd5ed1e63a5a94308b96df92a028bdd
+      size: 82
     - path: models/confusion_matrix.png
       hash: md5
-      md5: 505b5cc36ef32ba0110fab470bbab960
-      size: 46478
+      md5: 5b0b7d61b2768277d83f3138f8f2f698
+      size: 47663
