@@ -2,8 +2,8 @@ preprocess:
   test_size: 0.1
   seed: 42
 train:
-  dense_units: 256
+  dense_units: 128
   dropout_rate: 0.2
   learning_rate: 0.001
-  epochs: 15
+  epochs: 3
   batch_size: 32
